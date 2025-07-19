@@ -1,0 +1,1570 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Set a default background color */
+}
+/*Header style */
+#header {
+    background-color:black;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between name and nav links */
+    position: fixed; /* Makes the header stay in place when scrolling */
+    top: 0; /* Positions the header at the top of the viewport */
+    z-index: 1000; /* Ensures the header appears above other content */  
+    border-bottom: 1px solid rgba(255, 255, 255, 0.333); /* Add a bottom border for separation */
+    overflow: hidden; /* Prevents overflow issues */
+}
+.header-text {
+    color: white;
+    font-family: Geist;
+    font-size: 2.083vw;
+    font-weight: lighter;
+    transition: all 0.3s ease; /* Add smooth transition */
+    align-items: left;
+}
+
+#selected-page {    
+    color: white;
+    font-family: Geist;
+    font-size: 2.083vw;
+    font-weight: bolder;
+}
+.header-text a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Maintain text color for links */
+}
+.header-text:hover {
+    background-color: red;
+}
+.header-text:hover a {
+    color: black; /* This will change the link text color on hover */
+}
+#my-name-position{
+    text-align: left;
+    padding-left: 40px;
+}
+.nav-links {
+    margin-right: 40px; /* Add some space on the right */
+    text-align: right; /* Align links to the right */
+}
+
+.nav-links ul {
+    display: flex; /* Make the ul a flex container */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 50px; /* Add space between nav items */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Maintain text color for links */
+}
+/* end of Header style */
+/*Text style */
+.page-content {
+    margin: 0;
+    padding:0;
+    display: flex;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    
+    justify-content: space-between; /* Space between name and nav links */
+}
+.title_page{
+    color: white;
+    font-family: Geist;
+    font-size: 8.958vw;
+    font-style: normal;
+    font-weight: 700;
+    text-align: right;
+    padding-left: 40px;
+    
+}
+.description {
+    color: white;
+    font-family: Geist;
+    font-size: 1.25vw;
+    font-style: normal;
+    text-align: center;
+    padding-left: 40px;
+    padding-top: 0px;
+}
+
+.project-name{
+    color: white;
+    font-family: Geist;
+    font-size: 1.25vw;
+    font-weight: lighter;
+    text-align: left;
+    padding-left: 20px;
+}
+.pr-image-gymnase-content h4{
+    color: white;
+    font-family: Geist;
+    font-size: 48px;
+    text-align: left;
+}
+#description-size {
+    position: absolute;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 400px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#project-filter.active {
+    background-color: rgba(0, 0, 0);
+    transition: background-color 0.3s ease;
+}
+
+/* Make sure your regular project-filter has a transparent background */
+#project-filter {
+    width: 550px;
+    height: 100px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 0 40px 0 0;
+    position: relative;
+    padding: 0 10px;
+    background-color: transparent; /* Start with transparent background */
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+    z-index: 900; /* High z-index but below header */
+}
+
+/* Sticky filter style */
+#project-filter.sticky {
+    position: fixed;
+    top: 50px; /* Position right below the header */
+    right: 40px; /* Match the original right margin */
+    width: 550px; /* Keep the same width */
+    margin: 0;
+    padding: 0 10px;
+}
+
+/* Placeholder to prevent content jump when filter becomes sticky */
+#filter-placeholder {
+    display: none;
+    width: 550px;
+    height: 100px;
+    margin: 0 40px 0 0;
+}
+
+#filter-placeholder.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #filter-placeholder {
+        width: 90%;
+        height: auto;
+        min-height: 60px;
+        margin: 15px auto;
+    }
+}
+
+#filter-button {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#filter-button:hover {
+    cursor:pointer; /* Change cursor to pointer on hover */
+}
+#filter-button img {
+    width: 50px; /* Set a fixed width for the image */
+    height: 50px; /* Set a fixed height for the image */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+#filter-options {
+    flex: 1; /* Take up remaining space */
+    position: static;
+    z-index: 100;
+    margin-right: 10px; /* Add space between options and button */
+}
+
+/* Modify the list style to create a grid */
+#filter-options ul {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px; /* Space between items */
+    width: 100%;
+}
+.filter-option {
+    cursor: pointer;
+    color: white;
+    font-family: Geist;
+    font-size: 0.938vw;
+    font-weight: normal;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    width: calc(50% - 10px); /* Two items per row, accounting for gap */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    min-width: fit-content; /* Allow options to size to content */
+    max-width: calc(50% - 10px); /* Maximum width */
+}
+.filter-option-in-project {
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+    color: black;
+    font-family: Geist;
+    font-size: 0.938vw;
+    font-weight: normal;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    width: calc(50% - 10px); /* Two items per row, accounting for gap */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    min-width: fit-content; /* Allow options to size to content */
+    max-width: calc(50% - 10px); /* Maximum width */
+}
+.hidden {
+    display: none !important;
+}
+.filter-option:hover {
+    background-color: rgb(255, 0, 0);
+    color: black;
+    
+    border: none;
+}
+/* End of Text style */
+
+/* Project Thumbnail style */
+.project {
+    width: 910px;
+    height: 490px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Changed from center to space-between */
+    overflow: hidden;
+    position: relative; /* Add this for absolute positioning of children */
+    border-bottom: 1px solid white; /* Add a bottom border */
+}
+.project a{
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Maintain text color for links */
+}
+.project-info {
+    width: 100%;
+    height: 114px; /* This is the remaining height (490px - 376px) */
+    background-color: transparent; /* Changed from blue to transparent */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Changed from center to space-between */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.project-name {
+    width: 455px;
+}
+.project-description {
+    width: 455px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* This aligns content to the right */
+    justify-content: center;
+    padding-right: 20px; /* Add some right padding for gap */
+}
+.project-thumbnail {
+    width: 100%;
+    height: 376px;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+}
+.project-thumbnail img {
+    width: 100%; /* Fill the width */
+    height: 100%; /* Fill the height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position absolutely within container */
+    top: 0;
+    left: 0;
+}
+#project-page{
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between project cards */
+    padding-bottom: 20px;
+}
+
+/* End of Project Thumbnail style */
+
+/* Whole Project Page style */
+
+.pr-content {
+    width: 100%;
+    height: 100%;
+    margin-top: 50px; /* Adjust for fixed header */
+    padding: 20px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+.pr-preview {
+    width: 1840px;
+    height: 1045px;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+}
+
+.pr-preview video {
+    width: 100%; /* Fill the width */
+    height: 100%; /* Fill the height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position absolutely within container */
+}
+.pr-info-content {
+    display: flex; 
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center;
+    justify-content: center;
+    width: 100%;
+    position: relative; /* For absolute positioning of children */
+}
+.pr-title {
+    width: 910px;
+    height: 513px;
+    color: white;
+    font-family: Geist;
+    font-size: 2.083vw;
+    font-weight: bolder;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pr-title a {
+    color: white;
+    text-decoration: underline;
+}
+.pr-meta-content {
+    width: 910px;
+    height: 513px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For absolute positioning of children */
+}
+.pr-meta-content h2 {
+    color: white;
+    font-family: 'Geist Mono', monospace; 
+    font-size: 1.25vw;
+    text-align: center;
+    margin-bottom: 20px; /* Add some space below the title */
+}
+.meta-position {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Change this from center to space-between */
+    width: 100%; /* Take full width of parent */
+    padding: 0 20px; /* Add some horizontal padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+.pr-description {
+    width: 910px;
+    height: 513px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pr-description p {
+    color: white;
+    font-family: Geist;
+    font-size: 1.25vw;
+    font-weight: lighter;
+    padding: 20px; /* Add some padding for better readability */
+}
+
+.pr-mockup {
+    width: 1840px;
+    height: 1045px;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.pr-mockup img {
+    width: 100%; /* Fill the width */
+    height: 100%; /* Fill the height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position absolutely within container */
+      margin: 0 auto; /* Center the image */
+  display: block;
+}
+
+.pr-images {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center;
+    gap: 20px; /* Space between images */
+    padding: 20px 0;
+    margin: 0 auto; /* Center the container */
+}
+.pr-image{
+    width: 910px;
+    height: 513px;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+}
+.pr-image-v2{
+    width: 910px;
+    height: 1026px;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+}
+
+.pr-image-gymnase{
+    width: 1840px;
+    height: 30px;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+}
+.pr-image-ls{
+    width: 1840px;
+    height: 90px;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+}
+.pr-image img, video {
+    width: 100%; /* Fill the width */
+    height: 100%; /* Fill the height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position absolutely within container */
+}
+.pr-image-v2 img {
+    width: 100%; /* Fill the width */
+    height: 100%; /* Fill the height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position absolutely within container */
+}
+
+.pr-image-v3{
+    width: 600px;
+    height: 1026px;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+}
+.pr-image-v3 img {
+    width: 100%; /* Fill the width */
+    height: 100%; /* Fill the height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position absolutely within container */
+}
+
+.copyright p {
+    color: white;
+    font-family: Geist;
+    font-size: 0.938vw;
+    text-align: center;
+    margin-top: 20px; /* Add some space above the copyright text */
+}
+
+/* End of Whole Project Page style */
+/* About Page style */
+.about-content {
+    width: 50%;
+    height: 100%;
+    margin-top: 75px; /* Adjust for fixed header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.about-title-buttons{
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* This pushes items to opposite ends */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+.switch-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between buttons */
+}
+.about-buttons{
+    width: 50px;
+    height: 50px;
+}
+.about-buttons:hover {
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+.about-buttons img {
+    width: 50px; /* Set a fixed width for the image */
+    height: 50px; /* Set a fixed height for the image */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+.about-texts{
+    width: 910px; /* Take full width of parent */
+    height: 513px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.about-text p {
+    margin-left: 20px;
+    color: white;
+    font-family: Geist;
+    font-size: 1.25vw;
+}
+.about-text a{
+    text-decoration: underline; /* Remove underline from links */
+    color: white; /* Maintain text color for links */
+}
+.social-button{
+    width: 50px;
+    height: 50px;
+}
+.social-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px; /* Space between buttons */
+}
+.nothing {
+    width: 50px; /* Placeholder for spacing */
+    height: 50px; /* Placeholder for spacing */
+    background-color: transparent; /* No background color */
+}
+
+/* Section styles without transition */
+#about-section, #school-section, #skills-section {
+    width: 100%;
+}
+
+.school-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For absolute positioning of children */
+    width: 100%;
+    margin-top: 20px;
+}
+.school-info {
+    color: white;
+    font-family: 'Geist Mono', monospace; 
+    font-size: 1.25vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* This will push items to the edges */
+    width: 100%; /* Take full width of parent */
+    margin-bottom: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.school-info h4 {
+    margin: 0; /* Remove default margins */
+}
+
+.school-info h4:first-child {
+    text-align: left;
+}
+
+.school-info h4:last-child {
+    text-align: right;
+}
+
+.skill-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* For absolute positioning of children */
+    width: 100%;
+    margin-top: 20px;
+}
+
+.skill-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* This will push items to the edges */
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.skill-text {
+    text-align: left;
+}
+
+.skill-text h2 {
+    color: white;
+    font-family: 'Geist Mono', monospace; 
+    font-size: 1.25vw;
+    margin: 0; /* Remove default margins */
+}
+
+.skill-level-bg {
+    width: 350px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.486);
+    display: flex;
+    flex-direction: row;
+}
+
+#skill-3d {
+    width: 90%;
+    height: auto;
+    background-color: white;
+}
+#skill-md {
+    width: 65%;
+    height: auto;
+    background-color: white;
+}
+#skill-uiux {
+    width: 75%;
+    height: auto;
+    background-color: white;
+}
+#skill-cc {
+    width: 65%;
+    height: auto;
+    background-color: white;
+}
+
+/* End of About Page style */
+/* Commercial Page style */
+.commercial-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row; /* Keep as row to place elements side by side */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px; /* Increased space between elements */
+    background-color: black; /* Changed from blue to match site theme */
+}
+.pr-image-gymnase video, .pr-image-ls video {
+    width: 100%; /* Fill the width */
+    height: auto; /* Let height adjust automatically */
+    object-fit: contain; /* Changed from cover to contain */
+    position: absolute; /* Position absolutely within container */
+    top: 50%; /* Center vertically */
+    left: 0;
+    transform: translateY(-50%); /* Perfect vertical centering */
+    max-height: 100%; /* Ensure it doesn't exceed container height */
+}
+
+#canvas-container-about {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Places it behind content */
+    pointer-events: none; /* Allows clicking through the canvas */
+}
+
+/* End of Commercial Page style */
+/*Animation style */
+
+/* Animation for fade-in from bottom */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Class to apply to elements that should animate */
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Add staggered delays for sequential animations */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 3s; }
+
+/* Fake Loader Style */
+#fake-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: transform 1s ease-in-out;
+}
+
+#fake-loader.hide {
+  transform: translateY(-100%);
+}
+
+.loader-content {
+  text-align: center;
+  color: white;
+  font-family: Geist;
+}
+
+.loader-content h1 {
+  font-size: 100px;
+  margin-bottom: 20px;
+}
+
+.loader-content p {
+  font-size: 1.25vw;
+  margin-bottom: 40px;
+}
+
+.loader-button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-family: Geist;
+  font-size: 1.25vw;
+  padding: 10px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.loading-spinner {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative; /* Added position relative to contain absolute children */
+  margin: 0 auto; /* Center the spinner */
+}
+#loading-animation{
+    position: fixed; /* Changed from relative to fixed */
+    bottom: 20px; /* Keep 20px from bottom */
+    left: 20px; /* Add 20px from left */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Changed from center to flex-start to align content to the left */
+    justify-content: flex-end; /* Changed to align content to the bottom */
+    z-index: 1000; /* Ensure it appears above other elements */
+    pointer-events: none; /* Allow clicking through the animation */
+}
+.loading-spinner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the video covers the container */
+  position: absolute; /* Position absolutely within container */
+  top: 0;
+  left: 0;
+}
+.loading-text {
+  color: rgb(255, 0, 0);
+  font-family: Geist;
+  font-size: 0.625vw;
+  margin-bottom: 10px;
+  text-align: center; /* Align text to the center */
+}
+
+.loader-button:hover {
+  background-color: rgb(255, 0, 0);
+  color: black;
+  border: none; /* Remove border on hover */
+}
+/* End of Animation style */
+/* End of Fake Loader Style */
+/* CHANGE FOR MY MOBILE VERSION */
+@media (max-width: 768px) {
+    #header {
+        height: 50px;
+        padding: 0;
+        z-index: 1000;
+    }
+    
+    .header-text {
+        font-size: 4vw; /* Adjust font size for smaller screens */
+    }
+    
+    /* Hide desktop navigation on mobile */
+    .desktop-nav {
+        display: none;
+    }
+    
+    /* Mobile Menu Button */
+    .mobile-menu-button {
+        display: block;
+        cursor: pointer;
+        margin-right: 20px;
+        z-index: 1001;
+    }
+    
+    .menu-icon {
+        width: 30px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .bar {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+    
+    /* Mobile Navigation Overlay */
+    .mobile-nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 2000;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .mobile-nav-overlay.active {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .mobile-nav-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .close-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .mobile-nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .mobile-nav li {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .mobile-nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+    }
+    
+    /* Mobile Project Adjustments */
+    .page-content {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center content horizontally */
+        padding: 20px; /* Add some padding for better spacing */
+        padding-top: 60px; /* Add extra top padding to ensure content appears below header */
+    }   
+    .project {
+        width: 90%;
+        max-width: 400px;
+        height: auto; /* Adjust height automatically */
+        flex-direction: column; /* Stack elements vertically */
+        margin: 0 auto 20px auto; /* Center projects horizontally and add spacing between them */
+        box-sizing: border-box; /* Include padding and border in width calculation */
+    }
+    
+    .project a {
+        width: 100%; /* Make links take full width */
+        display: block; /* Make links behave as block elements */
+    }
+    
+    .project-thumbnail {
+        width: 100%;
+        height: 250px; /* Reduced height for mobile */
+    }
+    
+    .project-info {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        flex-direction: column; /* Stack name and description vertically */
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center text */
+    }
+    
+    .project-name, .project-description {
+        width: 100%;
+        padding: 0;
+        text-align: center; /* Center all text */
+        font-size: 16px;
+    }
+    
+    .project-description {
+        font-size: 14px;
+        align-items: center; /* Center content */
+        margin-top: 10px;
+        display: flex;
+        justify-content: center; /* Center filter tag */
+    }
+
+    .project-description p {
+        font-size: 14px; /* Adjust font size for better readability */
+    }
+    
+    /* Adjust project title for mobile */
+    .project-title {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Ensure consistent styling for the category labels */
+    .filter-option-in-project {
+        font-size: 14px;
+        margin: 0 auto; /* Center the tag */
+        display: inline-flex; /* Make sure it's sized to content */
+        min-width: auto; /* Override desktop min-width */
+        max-width: none; /* Override desktop max-width */
+        text-align: center;
+        justify-content: center;
+        padding: 5px 15px;
+    }
+    
+    /* Fix thumbnail consistency */
+    .project-thumbnail {
+        width: 100%;
+        height: 250px; /* Fixed height for all thumbnails */
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .project-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #project-page {
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Full width */
+        padding: 0 10px; /* Add some padding */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    /* Ensure project name heading is properly styled */
+    .project-name h2 {
+        font-size: 16px;
+        text-align: center;
+        margin: 0 0 10px 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    /* Project title container */
+    .project-title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    /* Adjust title and description for mobile */
+    .title_page {
+        font-size: 8vw;
+        text-align: center;
+        padding: 0 15px;
+    }
+    
+    #description-size {
+        position: relative;
+        width: 90%;
+        margin: 20px auto;
+        transform: none;
+        left: auto;
+    }
+    
+    .description {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    
+    /* Filter adjustments for mobile */
+    #project-filter {
+        width: 90%;
+        margin: 15px auto;
+        padding: 10px;
+        flex-direction: column;
+        position: relative;
+        height: auto;
+        background-color: transparent;
+        box-sizing: border-box; /* Ensure padding is included in width */
+    }
+    
+    #filter-button {
+        margin-bottom: 10px;
+        align-self: flex-end;
+        width: 40px;
+        height: 40px;
+        position: relative; /* Ensure consistent positioning */
+    }
+    
+    #filter-button img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    #filter-options {
+        width: 100%; /* Ensure options take full width */
+        box-sizing: border-box;
+    }
+    
+    #filter-options ul {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%; /* Ensure list takes full width */
+        box-sizing: border-box;
+    }
+    
+    .filter-option {
+        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
+        box-sizing: border-box; /* Ensure padding is included in width */
+    }
+    
+    /* Mobile sticky filter - this will be positioned dynamically via JS */
+    #project-filter.sticky {
+        position: fixed;
+        /* top is set dynamically in JS to match header height */
+        left: 0;
+        right: 0;
+        width: 90%;
+        margin: 0 auto;
+        z-index: 899; /* Lower than header z-index */
+        background-color: black; /* Ensure it has a background */
+        box-sizing: border-box;
+        padding: 10px;
+        height: auto;
+        min-height: 60px;
+        flex-direction: row; /* Change to row when sticky */
+        align-items: center;
+        justify-content: flex-end;
+        transition: top 0.3s ease, flex-direction 0.3s ease; /* Smoother transitions */
+    }
+    
+    /* When filter is sticky and user has opened it, keep column layout */
+    #project-filter.sticky.user-opened {
+        flex-direction: column;
+        padding-bottom: 15px; /* Add more padding at bottom when expanded */
+    }
+    
+    #project-filter.sticky #filter-button {
+        margin-bottom: 0;
+        width: 40px; /* Maintain consistent button size */
+        height: 40px;
+    }
+    
+    /* Ensure filter options maintain consistent width in sticky state */
+    #project-filter.sticky #filter-options {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    #project-filter.sticky #filter-options ul {
+        width: 100%;
+    }
+    
+    /* Ensure smooth transitions between states */
+    #project-filter, #filter-button, #filter-options {
+        transition: all 0.3s ease;
+    }
+    
+    /* About page mobile adjustments */
+    .about-content {
+        width: 90%;
+        margin: 60px auto 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: calc(100vh - 60px); /* Full viewport height minus header */
+        align-items: center;
+    }
+    
+    /* Hide three.js canvas on mobile */
+    #canvas-container-about {
+        display: none;
+    }
+    
+    .about-title-buttons {
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    .about-title h1 {
+        font-size: 12vw;
+        text-align: center;
+    }
+    
+    /* Position social content consistently at the bottom of each section */
+    .social-content {
+        margin-top: auto; /* Push to the bottom of the flex container */
+        width: 100%;
+        justify-content: center; /* Center on mobile */
+        padding: 15px 0;
+    }
+    
+    /* Position switch buttons to the right on mobile */
+    .switch-buttons {
+        justify-content: flex-end; /* Align buttons to the right */
+    }
+    
+    /* Make all section contents have consistent height on mobile */
+    #about-section, #school-section, #skills-section {
+        min-height: 70vh; /* Set a consistent minimum height */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Adjust content containers for consistent height */
+    .about-text, .school-content, .skill-content {
+        flex: 1; /* Take up available space */
+        display: flex;
+        flex-direction: column;
+        min-height: 300px; /* Set minimum height */
+        padding: 20px 0;
+    }
+    
+    .about-text p {
+        font-size: 16px;
+        margin-left: 0;
+    }
+    
+    .skill-level-bg {
+        width: 55%; /* Use percentage width to be more responsive */
+        min-width: 120px; /* Ensure minimum width */
+        height: 15px; /* Slightly smaller height for mobile */
+    }
+    
+    .skill-type {
+        flex-direction: row; /* Keep items in the same row */
+        align-items: center; /* Vertically center items */
+        justify-content: flex-start; /* Align items to the start */
+        gap: 10px; /* Add some space between text and level bar */
+        padding: 0 10px; /* Adjust padding for mobile */
+        margin-bottom: 20px; /* Reduce bottom margin for mobile */
+    }
+    
+    .skill-text h2 {
+        font-size: 16px;
+        margin: 0; /* Remove margin to prevent extra spacing */
+    }
+    
+    /* Skill content mobile styles */
+    .skill-content {
+        width: 90%; /* Make it narrower on mobile */
+        margin: 0 auto; /* Center it */
+    }
+    
+    .skill-text {
+        width: 40%; /* Give the text a percentage width */
+        min-width: 100px; /* Ensure minimum width */
+    }
+    
+    /* Project detail pages mobile adjustments */
+    .pr-content {
+        padding: 60px 10px 10px 10px;
+        width: 90%; /* Limit width to create some margin */
+        margin: 0 auto; /* Center content */
+    }
+    
+    .pr-preview,
+    .pr-mockup {
+        width: 100%;
+        height: auto;
+        min-height: 250px;
+    }
+    
+    .pr-title,
+    .pr-meta-content,
+    .pr-description {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+    
+    .pr-title {
+        font-size: 24px;
+        text-align: center; /* Center title text */
+    }
+    
+    .pr-meta-content h2,
+    .pr-description p {
+        font-size: 12px;
+    }
+    
+    .meta-position {
+        flex-direction: row; /* Keep as row */
+        justify-content: space-between; /* Push items to edges */
+        align-items: center;
+        width: 100%;
+        padding: 5px 0;
+        margin-bottom: 10px;
+    }
+    
+    .meta-position h2:first-child {
+        text-align: right; /* First h2 aligned right */
+        order: 1; /* Move to the right */
+    }
+    
+    .meta-position h2:last-child {
+        text-align: left; /* Second h2 aligned left */
+        order: 2; /* Move to the left */
+    }
+    
+    .pr-images {
+        padding: 10px 0 10px 10px; /* Add left padding, remove right padding */
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap; /* Prevent wrapping for horizontal scroll */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        gap: 15px; /* Space between images */
+        scroll-snap-type: x mandatory; /* Snap to each image when scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        scrollbar-width: none; /* Hide scrollbar in Firefox */
+        position: relative; /* For the scroll indicator */
+        justify-content: flex-start; /* Align items to the start */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .pr-images::-webkit-scrollbar {
+        display: none; /* Hide scrollbar in Chrome/Safari */
+    }
+    
+    .pr-image,
+    .pr-image-v2,
+    .pr-image-v3 {
+        flex: 0 0 85%; /* Slightly smaller to ensure more of next image is visible */
+        width: 85%;
+        height: auto;
+        min-height: 200px;
+        margin-bottom: 0; /* Remove bottom margin since we're scrolling horizontally */
+        scroll-snap-align: start; /* Snap to start of each image */
+        padding-right: 0; /* No padding to ensure full width */
+    }
+    
+    /* Specific styling for pr-image-v3 on mobile to maintain aspect ratio */
+    .pr-image-v3 {
+        aspect-ratio: 600 / 1026; /* Maintain the desktop aspect ratio */
+        height: auto !important; /* Let height be determined by aspect ratio */
+    }
+    
+    /* Specific styling for pr-image-v2 on mobile to maintain aspect ratio */
+    .pr-image-v2 {
+        aspect-ratio: 910 / 1026; /* Maintain the desktop aspect ratio */
+        height: auto !important; /* Let height be determined by aspect ratio */
+    }
+    
+    /* Special styling for the first image to ensure it starts at the beginning */
+    .pr-images .pr-image:first-child,
+    .pr-images .pr-image-v2:first-child,
+    .pr-images .pr-image-v3:first-child {
+        margin-left: 0; /* Ensure first image starts at the beginning */
+    }
+    
+    /* Scroll indicator for mobile */
+    .pr-images::after {
+        content: "Swipe to see more images →";
+        position: absolute;
+        bottom: -30px;
+        right: 10px;
+        font-size: 14px;
+        opacity: 0.8;
+        animation: pulse 2s infinite;
+        font-family: 'Geist', sans-serif;
+    }
+    
+    @keyframes pulse {
+        0% { opacity: 0.5; }
+        50% { opacity: 1; }
+        100% { opacity: 0.5; }
+    }
+    
+    /* Adjust image styling for mobile horizontal scroll */
+    .pr-image img {
+        position: relative; /* Change from absolute for mobile */
+        object-fit: contain;
+        width: 100%;
+        height: auto;
+        display: block; /* Ensures no extra space around images */
+    }
+    
+    /* Specific styling for pr-image-v3 images on mobile */
+    .pr-image-v3 img {
+        position: relative;
+        object-fit: cover; /* Use cover to fill the container */
+        width: 100%;
+        height: 100%; /* Fill the height of the container */
+        display: block;
+    }
+    
+    /* Specific styling for pr-image-v2 images on mobile */
+    .pr-image-v2 img {
+        position: relative;
+        object-fit: cover; /* Use cover to fill the container */
+        width: 100%;
+        height: 100%; /* Fill the height of the container */
+        display: block;
+    }
+    
+    /* Loader adjustments for mobile */
+    .loader-content h1 {
+        font-size: 36px;
+    }
+    
+    .loader-button {
+        font-size: 16px;
+        padding: 8px 20px;
+    }
+    
+    .loading-spinner {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* Commercial page mobile adjustments */
+    .commercial-content {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 60px; /* Add top padding to account for fixed header */
+        flex-direction: column; /* Stack elements vertically on mobile */
+        align-items: center; /* Center horizontally */
+        justify-content: center; /* Center vertically */
+        text-align: center; /* Center text content */
+    }
+    
+    .commercial-content .title_page {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    /* Adjust school content for consistent spacing */
+    .school-content {
+        justify-content: space-around; /* Distribute items evenly */
+    }
+    
+    .school-info{
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .skill-level-bg {
+        flex: 1; /* Take up remaining space */
+        min-width: 120px; /* Ensure minimum width */
+        height: 10px;
+        margin-left: 20px; /* Add margin between text and skill bar */
+    }
+
+    .pr-image-ls, .pr-image-gymnase-content {
+        display: none; /* Hide the large image on mobile */
+    }
+    .copyright p{
+        font-size: 12px; /* Adjust font size for mobile */
+        margin: 10px; /* Add some space above the copyright text */
+    }
+    .loading-text {
+        font-size: 12px; /* Adjust font size for mobile */
+        margin-bottom: 5px; /* Reduce space below loading text */
+    }
+
+}
+
+/* For larger screens, hide the mobile menu button */
+@media (min-width: 769px) {
+    .mobile-menu-button {
+        display: none;
+    }
+    
+    .mobile-nav-overlay {
+        display: none !important;
+    }
+    
+    /* Ensure desktop filter maintains correct layout */
+    #project-filter {
+        flex-direction: row-reverse !important;
+        width: 550px !important;
+    }
+    
+    #project-filter.sticky {
+        flex-direction: row-reverse !important;
+        right: 40px !important;
+    }
+    
+    #filter-button {
+        width: 50px !important;
+        height: 50px !important;
+        margin-bottom: 0 !important;
+    }
+    
+    #filter-button img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    /* Desktop overrides for pr-images horizontal scroll */
+    .pr-images {
+        flex-wrap: wrap !important;
+        overflow-x: visible !important;
+        scroll-snap-type: none !important;
+        padding: 20px 0 !important; /* Restore desktop padding */
+        justify-content: center !important; /* Center items on desktop */
+    }
+    
+    .pr-images::after {
+        display: none !important; /* Hide scroll indicator on desktop */
+    }
+    
+    .pr-image,
+    .pr-image-v2,
+    .pr-image-v3 {
+        flex: 0 0 auto !important;
+        margin-bottom: 15px !important;
+        scroll-snap-align: none !important;
+        position: relative !important;
+        padding-right: 0 !important;
+        margin-left: auto !important; /* Center images on desktop */
+        margin-right: auto !important;
+        aspect-ratio: initial !important; /* Reset aspect ratio for desktop */
+    }
+    
+    /* Desktop specific width overrides based on image type */
+    .pr-image {
+        width: 910px !important;
+    }
+    
+    .pr-image-v2 {
+        width: 910px !important;
+        height: 1026px !important; /* Restore original height for desktop */
+    }
+    
+    .pr-image-v3 {
+        width: 600px !important;
+        height: 1026px !important; /* Restore original height for desktop */
+    }
+    
+    /* Restore desktop image positioning */
+    .pr-image img {
+        position: absolute !important;
+        object-fit: cover !important;
+    }
+    
+    /* Desktop specific styling for pr-image-v2 images */
+    .pr-image-v2 img {
+        position: absolute !important;
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    /* Desktop specific styling for pr-image-v3 images */
+    .pr-image-v3 img {
+        position: absolute !important;
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    /* Show three.js canvas on desktop */
+    #canvas-container-about {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        pointer-events: none;
+    }
+}

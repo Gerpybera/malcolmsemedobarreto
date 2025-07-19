@@ -1,0 +1,250 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+/*Header style */
+#header {
+    background-color:black;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between name and nav links */
+    position: fixed; /* Makes the header stay in place when scrolling */
+    top: 0; /* Positions the header at the top of the viewport */
+    z-index: 1000; /* Ensures the header appears above other content */   
+}
+.header-text {
+    color: white;
+    font-family: Geist;
+    font-size: 36px;
+    font-weight: lighter;
+    transition: all 0.3s ease; /* Add smooth transition */
+}
+
+#selected-page {    
+    color: white;
+    font-family: Geist;
+    font-size: 36px;
+    font-weight: bolder;
+}
+.header-text a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Maintain text color for links */
+}
+.header-text:hover {
+    background-color: red;
+}
+.header-text:hover a {
+    color: black; /* This will change the link text color on hover */
+}
+#my-name-position{
+    text-align: left;
+    padding-left: 40px;
+}
+.nav-links {
+    margin-right: 40px; /* Add some space on the right */
+    text-align: right; /* Align links to the right */
+}
+
+.nav-links ul {
+    display: flex; /* Make the ul a flex container */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-left: 50px; /* Add space between nav items */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Maintain text color for links */
+}
+/* end of Header style */
+/*Text style */
+.page-content {
+    margin: 0;
+    padding:0;
+    display: flex;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    
+    justify-content: space-between; /* Space between name and nav links */
+}
+.title_page{
+    color: white;
+    font-family: Geist;
+    font-size: 172px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: right;
+    padding-left: 40px;
+    
+}
+.description {
+    color: white;
+    font-family: Geist;
+    font-size: 24px;
+    font-style: normal;
+    text-align: center;
+    padding-left: 40px;
+    padding-top: 0px;
+}
+
+.project-name{
+    color: white;
+    font-family: Geist;
+    font-size: 24px;
+    font-weight: lighter;
+    text-align: left;
+    padding-left: 20px;
+}
+#description-size {
+    width: 400px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#project-filter.active {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease;
+}
+
+/* Make sure your regular project-filter has a transparent background */
+#project-filter {
+    width: 550px;
+    height: 100px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin: 0 40px 0 0;
+    position: relative;
+    padding: 0 10px;
+    background-color: transparent; /* Start with transparent background */
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+}
+#filter-button {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#filter-button:hover {
+    cursor:pointer; /* Change cursor to pointer on hover */
+}
+#filter-button img {
+    width: 50px; /* Set a fixed width for the image */
+    height: 50px; /* Set a fixed height for the image */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+#filter-options {
+    flex: 1; /* Take up remaining space */
+    position: static;
+    z-index: 100;
+    margin-right: 10px; /* Add space between options and button */
+}
+
+/* Modify the list style to create a grid */
+#filter-options ul {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px; /* Space between items */
+    width: 100%;
+}
+.filter-option {
+    cursor: pointer;
+    color: white;
+    font-family: Geist;
+    font-size: 18px;
+    font-weight: normal;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    width: calc(50% - 10px); /* Two items per row, accounting for gap */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    min-width: fit-content; /* Allow options to size to content */
+    max-width: calc(50% - 10px); /* Maximum width */
+}
+.hidden {
+    display: none !important;
+}
+.filter-option:hover {
+    background-color: white;
+    color: black;
+}
+/* End of Text style */
+
+/* Project style */
+.project {
+    width: 910px;
+    height: 490px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Changed from center to space-between */
+    overflow: hidden;
+    position: relative; /* Add this for absolute positioning of children */
+    border-bottom: 1px solid white; /* Add a bottom border */
+}
+.project a{
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Maintain text color for links */
+}
+.project-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.project-name {
+    width: 455px;
+}
+.project-description {
+    width: 455px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.project-thumbnail {
+    width: 100%;
+    height: 376px;
+    background-color: gray;
+    overflow: hidden; /* Hide any overflow */
+    position: relative; /* For absolute positioning of the image */
+}
+.project-thumbnail img {
+    width: 100%; /* Fill the width */
+    height: 100%; /* Fill the height */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    position: absolute; /* Position absolutely within container */
+    top: 0;
+    left: 0;
+}
+#project-page{
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between project cards */
+    padding-bottom: 20px;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../img/icon.png" type="image/x-icon">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist-font/dist/geist.min.css">
+    <!-- Add Three.js library - Only loaded on desktop -->
+    <script type="importmap">
+    {
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+    }
+    </script>
+</head>
+<body>
+    <div id="canvas-container-about"></div>
+    <!-- Conditionally load Three.js only on desktop -->
+    <script>
+        function isMobileDevice() {
+            return window.innerWidth < 769;
+        }
+        
+        if (!isMobileDevice()) {
+            const threeScript = document.createElement('script');
+            threeScript.type = 'module';
+            threeScript.src = '../js/about-three.js';
+            document.body.appendChild(threeScript);
+        }
+        
+        // Handle resize events
+        window.addEventListener('resize', function() {
+            const canvasContainer = document.getElementById('canvas-container-about');
+            if (isMobileDevice()) {
+                canvasContainer.style.display = 'none';
+            } else {
+                canvasContainer.style.display = 'block';
+                if (!window.threeJsLoaded) {
+                    const threeScript = document.createElement('script');
+                    threeScript.type = 'module';
+                    threeScript.src = '../js/about-three.js';
+                    document.body.appendChild(threeScript);
+                    window.threeJsLoaded = true;
+                }
+            }
+        });
+    </script>
+    <!-- Header secton -->
+    <div id="header">
+        <div id="my-name-position">
+            <h3 class="header-text"><a href="../index.html">Malcolm Semedo Barreto</a></h3>
+        </div>
+        <!-- Desktop Navigation -->
+        <div class="nav-links desktop-nav">
+            <nav>
+                <ul>
+                    <li class="header-text"><a href="work.html">Works</a></li>
+                    <li class="header-text"><a href="commercial.html">Collaborations</a></li>
+                    <li class="header-text"><a href="about.html">About</a></li>
+                    <li class="header-text"><a href="mailto:gerpybera.buisness@gmail.com">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-button">
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-content">
+            <div class="close-button">×</div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li class="header-text"><a href="work.html">Works</a></li>
+                    <li class="header-text"><a href="commercial.html">Collaborations</a></li>
+                    <li class="header-text"><a href="about.html">About</a></li>
+                    <li class="header-text"><a href="mailto:gerpybera.buisness@gmail.com">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="about-content">
+        <div id="about-section">
+            <div class="about-title-buttons">
+                <div class="about-title animate-fade-up delay-1"> <h1 class="title_page">ABOUT</h1></div>
+                <div class="switch-buttons">
+                    <div class="about-buttons"> <img src="../img/logo/arrow-right.png" alt="arrow-right"></div>
+                </div>
+            </div>
+            <div class="about-text animate-fade-up delay-2"><p>Malcolm Semedo Barreto is a student and interactive media designer based in Bulle. He began his art studies at the Académie de Meuron in 2022, where he was able to thrive in the field of 3D modeling. Passionate about 3D animation, he specialized in this area while exploring various aspects of digital creation. Curious and versatile, he experiments with multiple roles, both in animation and within the production workflow. During the foundation year at ECAL, he had the opportunity to explore different disciplines within Media and Interaction Design, including UI/UX design and creative coding.
+                <br>
+                <br> <a href="https://can.ch/project/prix-andre-evrard-2023/">*Won the Evrard Award price in 2023</a></p></div>
+            <div class="social-content animate-fade-up delay-3">
+                <div class="social-button"> <a href="https://www.linkedin.com/in/malcolm-semedo-barreto-827503236/"><img src="../img/logo/linked-in.svg" alt="linked in"></a></div>
+                <div class="social-button"> <a href="https://www.instagram.com/gerpybera/"><img src="../img/logo/instagram.svg" alt="instagram"></a></div>
+                <div class="social-button"> <a href="https://www.youtube.com/@Gerpybera"><img src="../img/logo/youtube.svg" alt="youtube"></a></div>
+                <div class="social-button"> <a href="https://x.com/Gerpyb3ra"><img src="../img/logo/twitter.svg" alt="twitter"></a></div>
+            </div>
+        </div>
+        <div id="school-section">
+            <div class="about-title-buttons">
+                <div class="about-title animate-fade-up delay-1"> <h1 class="title_page">SCHOOL</h1></div>
+                <div class="switch-buttons">
+                    <div class="about-buttons"> <img src="../img/logo/arrow-left.png" alt="arrow-left"></div>
+                    <div class="about-buttons"> <img src="../img/logo/arrow-right.png" alt="arrow-right"></div>
+                </div>
+            </div>
+            <div class="school-content">
+                <div class="school-info animate-fade-up delay-1">
+                    <h4>Collège du Sud</h4>
+                    <h4>2020 - 2022</h4>
+                </div>
+                <div class="school-info animate-fade-up delay-2">
+                    <h4>Académie de Meuron</h4>
+                    <h4>2022 - 2024</h4>
+                </div>
+                <div class="school-info animate-fade-up delay-3">
+                    <h4>ECAL - Fondation Year</h4>
+                    <h4>2024 - 2025</h4>
+                </div>
+                <div class="school-info animate-fade-up delay-4">
+                    <h4>ECAL - Bachelor Media & Interaction Design</h4>
+                    <h4>in progress...</h4>
+                </div>
+            </div>
+            <div class="social-content animate-fade-up delay-3">
+                <div class="social-button"> <a href="https://www.linkedin.com/in/malcolm-semedo-barreto-827503236/"><img src="../img/logo/linked-in.svg" alt="linked in"></a></div>
+                <div class="social-button"> <a href="https://www.instagram.com/gerpybera/"><img src="../img/logo/instagram.svg" alt="instagram"></a></div>
+                <div class="social-button"> <a href="https://www.youtube.com/@Gerpybera"><img src="../img/logo/youtube.svg" alt="youtube"></a></div>
+                <div class="social-button"> <a href="https://x.com/Gerpyb3ra"><img src="../img/logo/twitter.svg" alt="twitter"></a></div>
+            </div>
+        </div>
+        <div id="skills-section">
+            <div class="about-title-buttons">
+                <div class="about-title animate-fade-up delay-1"> <h1 class="title_page">SKILLS</h1></div>
+                <div class="switch-buttons">
+                    <div class="about-buttons"> <img src="../img/logo/arrow-left.png" alt="arrow-left"></div>
+                    <div class="nothing"></div>
+                </div>
+            </div>
+            <div class="skill-content">
+                <div class="skill-type animate-fade-up delay-1">
+                    <div class="skill-text">
+                        <h2>3D Graphic</h2>
+                    </div>
+                    <div class="skill-level-bg">
+                        <div id="skill-3d"></div>
+                    </div>
+                </div>
+                <div class="skill-type animate-fade-up delay-2">
+                    <div class="skill-text">
+                        <h2>Motion Design</h2>
+                    </div>
+                    <div class="skill-level-bg">
+                        <div id="skill-md"></div>
+                    </div>
+                </div>
+                <div class="skill-type animate-fade-up delay-3">
+                    <div class="skill-text">
+                        <h2>UI / UX design</h2>
+                    </div>
+                    <div class="skill-level-bg">
+                        <div id="skill-uiux"></div>
+                    </div>
+                </div>
+                <div class="skill-type animate-fade-up delay-4">
+                    <div class="skill-text">
+                        <h2>Creative Coding</h2>
+                    </div>
+                    <div class="skill-level-bg">
+                        <div id="skill-cc"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-content animate-fade-up delay-3">
+                <div class="social-button"> <a href="https://www.linkedin.com/in/malcolm-semedo-barreto-827503236/"><img src="../img/logo/linked-in.svg" alt="linked in"></a></div>
+                <div class="social-button"> <a href="https://www.instagram.com/gerpybera/"><img src="../img/logo/instagram.svg" alt="instagram"></a></div>
+                <div class="social-button"> <a href="https://www.youtube.com/@Gerpybera"><img src="../img/logo/youtube.svg" alt="youtube"></a></div>
+                <div class="social-button"> <a href="https://x.com/Gerpyb3ra"><img src="../img/logo/twitter.svg" alt="twitter"></a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add JavaScript file -->
+    <script src="../js/about.js"></script>
+    <script src="../js/scroll-effect.js"></script>
+    <script src="../js/loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../img/icon.png" type="image/x-icon">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist-font/dist/geist.min.css">
+</head>
+<body>
+    <!-- Header secton -->
+    <div id="header">
+        <div id="my-name-position">
+            <h3 class="header-text"><a href="../index.html">Malcolm Semedo Barreto</a></h3>
+        </div>
+        <!-- Desktop Navigation -->
+        <div class="nav-links desktop-nav">
+            <nav>
+                <ul>
+                    <li class="header-text"><a href="work.html">Works</a></li>
+                    <li class="header-text"><a href="commercial.html">Collaborations</a></li>
+                    <li class="header-text"><a href="about.html">About</a></li>
+                    <li class="header-text"><a href="mailto:gerpybera.buisness@gmail.com">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-button">
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-content">
+            <div class="close-button">×</div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li class="header-text"><a href="work.html">Works</a></li>
+                    <li class="header-text"><a href="commercial.html">Collaborations</a></li>
+                    <li class="header-text"><a href="about.html">About</a></li>
+                    <li class="header-text"><a href="mailto:gerpybera.buisness@gmail.com">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="commercial-content">
+        <h1 class="title_page animate-fade-up delay-1">COLLABORATIONS</h1>
+    </div>
+        <!-- Bouton pour filtrer les types de projet -->
+       <!-- <div id="project-filter">
+            <div id="filter-button">
+                <img src="../img/logo/plus.png" alt="Filter projects button">
+            </div>
+            <div id="filter-options" class="hidden">
+                <ul>
+                    <li class="filter-option" data-filter="all">All</li>
+                    <li class="filter-option" data-filter="3d-animation">3D Animation</li>
+                    <li class="filter-option" data-filter="graphic-design">Graphic Design</li>
+                    <li class="filter-option" data-filter="media-interaction-design">Media & Interaction Design</li>
+                </ul>
+            </div>
+        </div>
+        <div id="filter-placeholder"></div>
+         Project Part -->
+    <!--Project Part -->
+    <div id="project-page">
+        <!--3d Animation Project Part -->
+        <div id="motion-design" class="project animate-fade-up delay-1"> <a href="../html/projects/motion-design/project-1/index.html"> 
+            <div class="project-thumbnail"> <img src="../img/project/thumbnail/pr-md1.png" alt="image's thumbnail">
+            </div>
+            <div class="project-info">
+                <div class="project-title">
+                    <h2 class="project-name">Clôture Fête fédérale de gymnastique Lausanne 2025</h2>
+                </div>
+                <div class="project-description">
+                    <p class="filter-option-in-project">Motion Design</p>
+
+                </div>
+            </div>
+
+        </a></div>
+        <div id="motion-design" class="project animate-fade-up delay-1"> <a href="../html/projects/motion-design/project-2/index.html"> 
+            <div class="project-thumbnail"> <img src="../img/project/thumbnail/pr-md2.png" alt="image's thumbnail">
+            </div>
+            <div class="project-info">
+                <div class="project-title">
+                    <h2 class="project-name">Lausanne Sport</h2>
+                </div>
+                <div class="project-description">
+                    <p class="filter-option-in-project">Motion Design</p>
+
+                </div>
+            </div>
+
+        </a></div>
+       <div class="copyright">
+            <p>© 2025 Malcolm Semedo Barreto. All rights reserved.</p>
+        </div>
+    </div>
+</body> <!-- 
+<script>
+      
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the filter button and options elements
+        const filterButton = document.getElementById('filter-button');
+        const filterButtonImg = filterButton.querySelector('img');
+        const filterOptions = document.getElementById('filter-options');
+        const filterItems = document.querySelectorAll('.filter-option[data-filter]');
+        const projectFilter = document.getElementById('project-filter');
+        const filterPlaceholder = document.getElementById('filter-placeholder');
+        const projects = document.querySelectorAll('.project');
+        
+        // Store image paths
+        const plusIcon = '../img/logo/plus.png';
+        const minusIcon = '../img/logo/minus.png';
+        
+        // Set initial state - show all projects
+        let currentFilter = 'all';
+        
+        // Variables for sticky filter
+        const header = document.getElementById('header');
+        const initialFilterPosition = projectFilter.getBoundingClientRect().top + window.scrollY;
+        
+        // Toggle filter options visibility when button is clicked
+        filterButton.addEventListener('click', function() {
+            filterOptions.classList.toggle('hidden');
+            projectFilter.classList.toggle('active'); // Toggle active class on container
+            
+            // Change the image based on whether filter options are visible
+            if (filterOptions.classList.contains('hidden')) {
+                filterButtonImg.src = plusIcon; // Show plus when options are hidden
+            } else {
+                filterButtonImg.src = minusIcon; // Show minus when options are visible
+            }
+        });
+        
+        // Handle filter option selection
+        filterItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all options
+                filterItems.forEach(option => option.classList.remove('active'));
+                
+                // Add active class to clicked option
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                currentFilter = filterValue;
+                
+                // Filter projects based on selection
+                filterProjects(filterValue);
+                
+                // Keep filter options open (don't hide them)
+                // Change button image to minus
+                filterButtonImg.src = minusIcon;
+            });
+        });
+        
+        // Function to filter projects
+        function filterProjects(filter) {
+            projects.forEach(project => {
+                if (filter === 'all') {
+                    // Show all projects
+                    project.style.display = 'flex';
+                } else {
+                    // Show only projects matching the filter
+                    if (project.id === filter) {
+                        project.style.display = 'flex';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                }
+            });
+        }
+        
+        // Handle sticky filter on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const headerHeight = header.offsetHeight;
+            
+            // Check if scroll position is past the initial position of the filter
+            if (scrollPosition > initialFilterPosition - headerHeight) {
+                // Make filter sticky
+                projectFilter.classList.add('sticky');
+                filterPlaceholder.classList.add('active');
+            } else {
+                // Return filter to original position
+                projectFilter.classList.remove('sticky');
+                filterPlaceholder.classList.remove('active');
+            }
+        });
+    });
+</script>-->
+<script src="../js/scroll-effect.js"></script>
+<script src="../js/loader.js"></script>
+</body>
+</html>

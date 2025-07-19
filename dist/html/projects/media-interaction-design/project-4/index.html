@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/css/styles.css">
+    <link rel="icon" href="/dist/img/icon.png" type="image/x-icon">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist-font/dist/geist.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist-font/dist/geist-mono.min.css">
+    <link href="https://vjs.zencdn.net/8.22.0/video-js.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Header secton -->
+    <div id="header">
+        <div id="my-name-position">
+            <h3 class="header-text"><a href="/dist/html/work.html">Back</a></h3>
+        </div>
+        <div class="nav-links">
+            <nav>
+                <ul>
+                    <li class="header-text"><a href="../project-3/index.html">⟵ Previous</a></li>
+                    <li class="header-text"><a href="../project-5/index.html">Next ⟶</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Project secton -->
+    <div class="pr-content">
+        <div class="pr-preview animate-fade-up delay-1">
+            <video
+                id="my-video"
+                class="video-js"
+                controls
+                preload="auto"
+                poster="./img/image.png"
+                data-setup="{}"
+                controlsList="nodownload"
+                oncontextmenu="return false;"
+                disablePictureInPicture
+            >
+                <source src="./video/project.mp4" type="video/mp4" />
+                <!--<source src="MY_VIDEO.webm" type="video/webm" /> -->
+                <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank"
+                    >supports HTML5 video</a
+                >
+                </p>
+            </video>
+        </div>
+        <div class="pr-info-content">
+            <div class="pr-title"><h2><a href="https://ppmid.matoseb.com/">Webtoy - Vaccum Cleaner</a></h2></div>
+            
+            <div class="pr-meta-content">
+                <div class="meta-position" id="pr-type">
+                    <h2>Type</h2>
+                    <h2>Media & Interaction Design</h2>
+                </div>
+                 <div class="meta-position" id="pr-date">
+                    <h2>Date</h2>
+                    <h2>20.05.2025</h2>
+                </div>
+                <div class="meta-position" id="pr-scale">
+                    <h2>Scale</h2>
+                    <h2>1920 x 1080 px</h2>
+                </div>
+                <div class="meta-position" id="pr-know-how">
+                    <h2>Know-How</h2>
+                    <h2>Mouvement Image, 3D Graphics</h2>
+                </div>               
+            </div>
+            
+            <div class="pr-description">
+                <p>For this project, we had to choose an everyday object and develop its interactions through code. I chose a vacuum cleaner. My concept was to create a simulation where the user must continuously vacuum a room whose floor is constantly covered with tiny dust particles. In my project, you can not only interact with the vacuum cleaner, but also with various environmental elements such as the painting, trash can, plants, etc.</p>
+            </div>
+        </div>
+        <div class="pr-mockup animate-fade-up delay-1">
+            <img src="./img/mockup.png" alt="mockup image of the project">
+        </div>
+        <div class="pr-images">
+            <div class="pr-image animate-fade-up delay-1">
+                <img src="./img/image.png" alt="project image 1">
+            </div>
+            <div class="pr-image animate-fade-up delay-2">
+                <img src="./img/image_2.png" alt="project image 2">
+            </div>
+            <div class="pr-image animate-fade-up delay-3">
+                <img src="./img/image_3.png" alt="project image 3">
+            </div>
+            <div class="pr-image animate-fade-up delay-4">
+                <img src="./img/image_4.png" alt="project image 4">
+            </div>
+        </div>
+        <!-- Copyright secton -->
+        <div class="copyright">
+            <p>© 2025 Malcolm Semedo Barreto. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+<script src="https://vjs.zencdn.net/8.22.0/video.min.js"></script>
+<script src="/dist/js/scroll-effect.js"></script>
+<script>
+    // Additional protection for videos
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('my-video');
+        if (video) {
+            // Prevent right-clicking
+            video.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Set controlsList attribute programmatically for better cross-browser support
+            video.controlsList.add('nodownload');
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./img/icon.png" type="image/x-icon">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist-font/dist/geist.min.css">
+    <!-- Add Three.js library -->
+    <script type="importmap">
+    {
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+    }
+    </script>
+    <!-- Add Ammo.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/ammo.js@0.0.10/ammo.js"></script>
+</head>
+<body>
+    <!-- Header secton -->
+    <div id="header">
+        <div id="my-name-position">
+            <h3 class="header-text"><a href="index.html">Malcolm Semedo Barreto</a></h3>
+        </div>
+        <!-- Desktop Navigation -->
+        <div class="nav-links desktop-nav">
+            <nav>
+                <ul>
+                    <li class="header-text"><a href="./html/work.html">Works</a></li>
+                    <li class="header-text"><a href="./html/commercial.html">Collaborations</a></li>
+                    <li class="header-text"><a href="./html/about.html">About</a></li>
+                    <li class="header-text"><a href="mailto:gerpybera.buisness@gmail.com">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-button">
+            <div class="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-content">
+            <div class="close-button">×</div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li class="header-text"><a href="./html/work.html">Works</a></li>
+                    <li class="header-text"><a href="./html/commercial.html">Collaborations</a></li>
+                    <li class="header-text"><a href="./html/about.html">About</a></li>
+                    <li class="header-text"><a href="mailto:gerpybera.buisness@gmail.com">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- Fake Loader -->
+    <div id="fake-loader">
+        <div class="loader-page">
+            <div class="loader-content">
+                <h1 class="animate-fade-up delay-5">MALCOLM SEMEDO BARRETO</h1>
+                <button class="loader-button animate-fade-up delay-7" id="loader-button">Click to start</button>
+            </div>
+        </div>
+        <div id="loading-animation">
+            <div class="loading-text animate-fade-up delay-2"><p>You came to the right place for creativity...</p></div>
+            <div class="loading-spinner animate-fade-up delay-1">
+                <video src="./img/loading.mp4" autoplay loop muted></video>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Three.js Canvas Container -->
+    <div id="canvas-container" style="width: 100%; height: 100vh;"></div>
+    <script type="module" src="./js/physics.js"></script>
+    <script type="module" src="./js/main.js"></script>
+    <script src="./js/scroll-effect.js"></script>
+    <script src="./js/loader.js"></script>
+</body>
+</html>
