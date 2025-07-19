@@ -222,14 +222,14 @@ const textModelPaths = [
     name: "text8",
     path: "./asset/text/text8.glb",
     position: { x: 0, y: -2, z: 0 },
-    mobilePosition: { x: 0, y: -4, z: 0 },
+    mobilePosition: { x: -1, y: -4, z: 0 },
     mobileScale: 1.2,
   },
   {
     name: "button",
     path: "./asset/text/button.glb",
     position: { x: 0, y: 0, z: 0 },
-    mobilePosition: { x: -1.5, y: -4, z: 0 },
+    mobilePosition: { x: -1.5, y: -2.3, z: 0 },
     mobileScale: 0.8,
   },
 ];
